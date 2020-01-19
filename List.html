@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Danh sách làm</title>
+    <link rel="stylesheet" href="List.css">
+</head>
+
+<body>
+  <!-- Phần nhập lệnh vào -->
+  <div id="div" class="header">
+      <h1>Điều cần phải làm:</h1>
+      <input type="text" id="Input" placeholder="Nhập vào đây">
+      <span onclick="newElement()" id="add">Thêm vào</span>
+  </div>
+
+  <!-- Thông tin ghi chú -->
+  <ul id="NoteList">
+  </ul>
+</body>
+
+<script>
+
+// Tạo nút đóng
+var nodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < nodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  nodelist[i].appendChild(span);
+}
+
+// Xóa bỏ 1 note
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Hiện dấu tick
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Tạo 1 cái mới
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("Input").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Bạn quên chưa điền gì kìa!");
+  } else {
+    document.getElementById("NoteList").appendChild(li);
+  }
+  document.getElementById("Input").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+</script>

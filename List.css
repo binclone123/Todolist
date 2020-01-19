@@ -1,0 +1,102 @@
+* {
+    box-sizing: content-box;   
+}
+
+body {
+    background-image: url(https://hoctienganhnhanh.net/wp-content/uploads/2019/08/take-note-khi-nghe-tieng-anh-5.png);
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: gray;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.header {
+    text-align: center;
+    background-color: cadetblue;
+    margin: 0px 200px 0px 200px;
+}
+
+h1 {
+    color: ghostwhite;
+}
+
+ul {
+    margin: 0;
+    padding: 5px 300px 0px 300px;  
+}
+
+ul li {
+    text-align: left;
+    font-size: 20px;
+    padding: 15px 10px 15px 50px;
+    background: aquamarine;
+    transition: 0.3s;
+    user-select: none;
+    list-style-type: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li:hover {
+    background: slategray;
+    font-size: 15px;
+}
+
+ul li.checked {
+    background: blue;
+    color: snow;
+    text-decoration: line-through;
+}
+
+/* Tạo dấu check */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: tan;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 5px;
+    left: 15px;
+    transform: rotate(45deg);
+    height: 30px;
+    width: 15px;
+  }
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px 20px 15px 20px;
+}
+
+/* Đổi màu khi hover */
+.close:hover {
+    background-color: red;
+    color: lime;
+}
+
+input {
+    font-size: 20px;
+}
+
+/* Customize nút Add */
+#add {
+    padding: 4px;
+    background: lightyellow;
+    color: mediumturquoise;
+    text-align: center;
+    font-size: 20px;
+    transition: 0.3s;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+#add:hover {
+    color: gold;
+    background-color: deepskyblue;
+}
+
+
+
+
